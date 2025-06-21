@@ -23,7 +23,7 @@ namespace RogueliteSurvivor.Systems
             Entity player = new Entity();
             Position? playerPos = null;
             float radiusMultiplier = 0;
-            world.Query(in playerQuery, (in Entity entity, ref Position pos, ref AreaOfEffect areaOfEffect) =>
+            world.Query(in playerQuery, (Entity entity, ref Position pos, ref AreaOfEffect areaOfEffect) =>
             {
                 if (!playerPos.HasValue)
                 {
@@ -35,7 +35,7 @@ namespace RogueliteSurvivor.Systems
 
             if (playerPos.HasValue)
             {
-                world.Query(in query, (in Entity entity, ref PickupSprite sprite, ref Position pos) =>
+                world.Query(in query, (Entity entity, ref PickupSprite sprite, ref Position pos) =>
                 {
                     if (Vector2.Distance(playerPos.Value.XY, pos.XY) < (16 * radiusMultiplier))
                     {

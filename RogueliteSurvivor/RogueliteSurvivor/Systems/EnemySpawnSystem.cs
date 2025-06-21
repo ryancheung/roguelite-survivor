@@ -81,7 +81,7 @@ namespace RogueliteSurvivor.Systems
                 setDifficulty((int)totalElapsedTime, player, offset, map);
             }
 
-            world.Query(in query, (in Entity entity, ref Enemy enemy, ref Pickup pickup, ref Position position, ref EntityStatus entityStatus) =>
+            world.Query(in query, (Entity entity, ref Enemy enemy, ref Pickup pickup, ref Position position, ref EntityStatus entityStatus) =>
             {
                 if (entityStatus.State == State.Dead)
                 {
@@ -172,7 +172,7 @@ namespace RogueliteSurvivor.Systems
 
                 var entity = world.Create<Enemy, EntityStatus, Position, Velocity, Speed, Animation, SpriteSheet, Target, Health, Damage, Spell1, Body, Pickup, Experience>();
 
-                Vector2 position = getSpawnPosition(player.Value.XY, offset, map);
+                var position = getSpawnPosition(player.Value.XY, offset, map);
 
                 var body = new BodyDef();
                 body.position = new System.Numerics.Vector2(position.X, position.Y) / PhysicsConstants.PhysicsToPixelsRatio;

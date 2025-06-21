@@ -57,7 +57,7 @@ namespace RogueliteSurvivor.Systems
             if (layer == 4)
             {
                 int counter = 0;
-                world.Query(in query, (in Entity entity, ref Health health, ref KillCount killCount, ref AttackSpeed attackSpeed, ref Speed speed
+                world.Query(in query, (Entity entity, ref Health health, ref KillCount killCount, ref AttackSpeed attackSpeed, ref Speed speed
                     , ref SpellDamage spellDamage, ref SpellEffectChance spellEffectChance, ref Pierce pierce, ref AreaOfEffect areaOfEffect, ref Player playerInfo) =>
                 {
                     spriteBatch.Draw(

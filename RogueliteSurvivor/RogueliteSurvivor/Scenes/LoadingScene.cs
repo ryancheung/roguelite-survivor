@@ -10,7 +10,7 @@ namespace RogueliteSurvivor.Scenes
 {
     public class LoadingScene : Scene
     {
-        private Dictionary<string, Texture2D> textures;
+        //private Dictionary<string, Texture2D> textures;
         private Dictionary<string, SpriteFont> fonts;
 
         private float counter = 0f;
@@ -60,7 +60,7 @@ namespace RogueliteSurvivor.Scenes
 
         public override void Draw(GameTime gameTime, Matrix transformMatrix, params object[] values)
         {
-            _spriteBatch.Begin(samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend, transformMatrix: transformMatrix);
+            _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, transformMatrix);
 
             _spriteBatch.DrawString(
                 fonts["Font"],

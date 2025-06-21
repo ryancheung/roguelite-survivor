@@ -21,7 +21,7 @@ namespace RogueliteSurvivor.Systems
 
         public void Update(GameTime gameTime, float totalElapsedTime)
         {
-            world.Query(in burnQuery, (in Entity entity, ref EntityStatus entityStatus, ref Burn burn, ref Health health, ref Animation anim) =>
+            world.Query(in burnQuery, (Entity entity, ref EntityStatus entityStatus, ref Burn burn, ref Health health, ref Animation anim) =>
             {
                 burn.TimeLeft -= (float)gameTime.ElapsedGameTime.Ticks / TimeSpan.TicksPerSecond;
                 burn.NextTick -= (float)gameTime.ElapsedGameTime.Ticks / TimeSpan.TicksPerSecond;
@@ -44,7 +44,7 @@ namespace RogueliteSurvivor.Systems
                 }
             });
 
-            world.Query(in slowQuery, (in Entity entity, ref Slow slow) =>
+            world.Query(in slowQuery, (Entity entity, ref Slow slow) =>
             {
                 slow.TimeLeft -= (float)gameTime.ElapsedGameTime.Ticks / TimeSpan.TicksPerSecond;
 
@@ -54,7 +54,7 @@ namespace RogueliteSurvivor.Systems
                 }
             });
 
-            world.Query(in shockQuery, (in Entity entity, ref Shock shock) =>
+            world.Query(in shockQuery, (Entity entity, ref Shock shock) =>
             {
                 shock.TimeLeft -= (float)gameTime.ElapsedGameTime.Ticks / TimeSpan.TicksPerSecond;
 

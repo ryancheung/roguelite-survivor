@@ -157,9 +157,10 @@ namespace RogueliteSurvivor.Scenes
 
         private void resetWorld()
         {
-            if (world.CountEntities(new QueryDescription()) > 0)
+            var entityCount = world.CountEntities(new QueryDescription());
+            if (entityCount > 0)
             {
-                List<Entity> entities = new List<Entity>();
+                Entity[] entities = new Entity[entityCount];
                 world.GetEntities(new QueryDescription(), entities);
                 foreach (var entity in entities)
                 {
@@ -378,7 +379,7 @@ namespace RogueliteSurvivor.Scenes
                 {
                     foreach (var system in renderSystems)
                     {
-                        _spriteBatch.Begin(samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend, transformMatrix: transformMatrix);
+                        _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, transformMatrix);
                         system.Render(gameTime, _spriteBatch, textures, player, totalGameTime, gameState, layer);
                         _spriteBatch.End();
                     }
@@ -386,7 +387,7 @@ namespace RogueliteSurvivor.Scenes
             }
             else
             {
-                _spriteBatch.Begin(samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend, transformMatrix: transformMatrix);
+                _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, transformMatrix);
 
                 _spriteBatch.DrawString(
                     fonts["Font"],

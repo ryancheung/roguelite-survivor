@@ -39,12 +39,12 @@ namespace RogueliteSurvivor.Systems
 
         public void Update(GameTime gameTime, float totalElapsedTime)
         {
-            world.Query(in spell1Query, (in Entity entity, ref Position pos, ref Target target, ref Spell1 spell1) =>
+            world.Query(in spell1Query, (Entity entity, ref Position pos, ref Target target, ref Spell1 spell1) =>
             {
                 spell1.Cooldown = processSpell(gameTime, entity, pos, target, spell1);
             });
 
-            world.Query(in spell2Query, (in Entity entity, ref Position pos, ref Target target, ref Spell2 spell2) =>
+            world.Query(in spell2Query, (Entity entity, ref Position pos, ref Target target, ref Spell2 spell2) =>
             {
                 spell2.Cooldown = processSpell(gameTime, entity, pos, target, spell2);
             });

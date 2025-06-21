@@ -4,7 +4,7 @@ A simple Vampire Survivors clone
 
 ## Libraries
 
-- Monogame 3.8.1 [https://www.monogame.net](https://www.monogame.net)
+- FNA.NET 2.0.1.2506 [https://github.com/FNA-NET/FNA](https://github.com/FNA-NET/FNA)
   - Main framework that allows for everything else to work and provides easy to use functions for working with 2D graphics
 - Arch [https://github.com/genaray/Arch](https://github.com/genaray/Arch)
   - High speed ECS library

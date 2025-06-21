@@ -15,7 +15,7 @@ namespace RogueliteSurvivor.Systems
         public void Update(GameTime gameTime, float totalElapsedTime)
         {
 
-            world.Query(in query, (in Entity entity, ref EntityStatus entityStatus) =>
+            world.Query(in query, (Entity entity, ref EntityStatus entityStatus) =>
             {
                 if (entityStatus.State == State.Dead)
                 {

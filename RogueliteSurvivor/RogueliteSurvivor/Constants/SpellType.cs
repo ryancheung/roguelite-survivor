@@ -21,13 +21,10 @@ namespace RogueliteSurvivor.Constants
             {
                 case "None":
                     return SpellType.None;
-                    break;
                 case "Projectile":
                     return SpellType.Projectile;
-                    break;
                 case "SingleTarget":
                     return SpellType.SingleTarget;
-                    break;
                 default:
                     return SpellType.None;
             }

@@ -25,10 +25,9 @@ namespace RogueliteSurvivor.Systems
             world.Query(in query, (ref Velocity vel, ref Speed sp) =>
             {
                 vel.Vector = Vector2.Zero;
-                if (kState.GetPressedKeyCount() > 0)
+                var keys = kState.GetPressedKeys();
+                if (keys.Length > 0)
                 {
-                    var keys = kState.GetPressedKeys();
-
                     if (keys.Contains(Keys.Up) || keys.Contains(Keys.Down) || keys.Contains(Keys.Left) || keys.Contains(Keys.Right))
                     {
                         if (keys.Contains(Keys.Up))
